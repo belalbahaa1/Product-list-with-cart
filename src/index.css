@@ -1,0 +1,76 @@
+@import url("https://fonts.google.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Colors from Style Guide */
+  --color-custom-red: hsl(14, 86%, 42%);
+  --color-custom-green: hsl(159, 69%, 38%);
+
+  --color-rose-50: hsl(20, 50%, 98%);
+  --color-rose-100: hsl(13, 31%, 94%);
+  --color-rose-300: hsl(14, 25%, 72%);
+  --color-rose-400: hsl(7, 20%, 60%);
+  --color-rose-500: hsl(12, 20%, 44%);
+  --color-rose-900: hsl(14, 65%, 9%);
+
+  /* Typography */
+  --font-redhat: "Red Hat Text", sans-serif;
+
+  --breakpoint-mobile: 375px;
+  --breakpoint-desktop: 1440px;
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply font-redhat text-[16px] leading-normal text-rose-900 bg-rose-50 min-h-screen p-10 antialiased;
+  }
+
+  h1 {
+    @apply text-4xl font-bold text-rose-900;
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-rose-900;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+/* Custom Utilities if needed */
+@layer utilities {
+  .container-custom {
+    @apply max-w-[1216px] mx-auto;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-rose-100 rounded-full;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+}
